@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# Create README.md
+echo -e "Python - Hello, World\n==========================\n" > README.md
+
+# Create lists.h
+echo -e "#ifndef LISTS_H\n#define LISTS_H\n\n#include <stdlib.h>\n\n/**
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
+ */
+typedef struct listint_s
+{
+	int n;
+	struct listint_s *next;
+} listint_t;\n\nsize_t print_listint(const listint_t *h);
+listint_t *add_nodeint(listint_t **head, const int n);
+void free_listint(listint_t *head);
+int check_cycle(listint_t *list);\n\n#endif /* LISTS_H */\n" > lists.h
+
+# Create 0-run
+echo -e "#!/bin/bash\npython3 \$PYFILE\n" > 0-run
+chmod +x 0-run
+
+# Create 1-run_inline
+echo -e "#!/bin/bash\npython3 -c \"$PYCODE\"\n" > 1-run_inline
+chmod +x 1-run_inline
+
+# Create 2-print.py
+echo -e "#!/usr/bin/python3\nprint(\"Programming is like building a multilingual puzzle\")\n" > 2-print.py
+chmod +x 2-print.py
+
+# Create 3-print_number.py
+echo -e "#!/usr/bin/python3\nnumber = 98\nprint(f\"{number:d} Battery street\")\n" > 3-print_number.py
+chmod +x 3-print_number.py
+
+# Create 4-print_float.py
+echo -e "#!/usr/bin/python3\nnumber = 3.14159\nprint(f\"Float: {number:.2f}\")\n" > 4-print_float.py
+chmod +x 4-print_float.py
+
+# Create 5-print_string.py
+echo -e "#!/usr/bin/python3\nstr = \"Holberton School\"\nprint(3 * str)\nprint(str[:9])\n" > 5-print_string.py
+chmod +x 5-print_string.py
+
+# Create 6-concat.py
+echo -e "#!/usr/bin/python3\nstr1 = \"Holberton\"\nstr2 = \"School\"\nstr1 += \" \" + str2\nprint(\"Welcome to {}!\".format(str1))\n" > 6-concat.py
+chmod +x 6-concat.py
+
+# Create 7-edges.py
+echo -e "#!/usr/bin/python3\nword = \"Holberton\"\nword_first_3 = word[:3]\nword_last_2 = word[-2:]\nmiddle_word = word[1:-1]\nprint(\"First 3 letters: {}\".format(word_first_3))\nprint(\"Last 2 letters: {}\".format(word_last_2))\nprint(\"Middle word: {}\".format(middle_word))\n" > 7-edges.py
+chmod +x 7-edges.py
+
+# Create 8-concat_edges.py
+echo -e "#!/usr/bin/python3\nstr = \"Python is an interpreted, interactive, object-oriented programming\
+        language that combines remarkable power with very clear syntax\"\nstr = str[39:67] + str[107:112] + str[:6]\nprint(str)\n" > 8-concat_edges.py
+chmod +x 8-concat_edges.py
+
+# Create 9-easter_egg.py
+echo -e "#!/usr/bin/python3\nimport this\n" > 9-easter_egg.py
+chmod +x 9-easter_egg.py
+
+# Create 10-check_cycle.c
+echo -e "#include \"lists.h\"\n\nint check_cycle(listint_t *list)\n{
+    listint_t *slow = list;
+    listint_t *fast = list;\n
+    if (!list)
+        return (0);\n
+    while (slow && fast && fast->next)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+            return (1);
+    }\n
+    return (0);
+}\n" > 10-check_cycle.c
+
+# Create 100-write.py
+echo -e "#!/usr/bin/python3\nimport sys\nsys.stderr.write(\"and that piece of art is useful - Dora Korpar, 2015-10-19\\n\")\nsys.exit(1)\n" > 100-write.py
+chmod +x 100-write.py
+
+# Create 101-compile
+echo -e "#!/bin/bash\npython3 -m compileall -b \$PYFILE i\n" > 101-compile
+chmod +x 101-compile
+
+# Create 102-magic_calculation.py
+echo -e "#!/usr/bin/python3\ndef magic_calculation(a, b):\n    return (98 + a ** b)\n" > 102-magic_calculation.py
+chmod +x 102-magic_calculation.py
+
+echo "Files and scripts created successfully!"
+
